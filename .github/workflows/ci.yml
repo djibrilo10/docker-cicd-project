@@ -9,14 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Récupérer le code
+    - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Build Docker
+    - name: Build Docker image
       run: docker build -t mon-app .
 
-    - name: Lancer le conteneur
-      run: docker run -d -p 3000:3000 mon-app
+    - name: Run container
+      run: docker run -d -p 3000:3000 --name test-container mon-app
 
-    - name: Test HTTP
+    - name: Wait for app
+      run: sleep 5
+
+    - name: Test app
       run: curl http://localhost:3000
