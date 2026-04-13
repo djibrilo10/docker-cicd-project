@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -9,4 +9,7 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["node", "app.js"]
+HEALTHCHECK --interval=5s --timeout=2s --retries=3 \
+  CMD wget -qO- http://localhost:3000 || exit 1
+
+CMD ["npm", "start"]
