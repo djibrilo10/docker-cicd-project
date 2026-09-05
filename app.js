@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
           <img src="https://picsum.photos/200" />
 
           <h1>focuszone CI/CD Pipeline</h1>
-          <p>Version 5 fonctionne parfaitement !</p>
+          <p>Version 6 fonctionne parfaitement !</p>
 
           <div class="badge">Docker + GitHub Actions</div>
 
